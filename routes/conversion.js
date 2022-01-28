@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { getCurrency, getOunces, getInches, getKgs, getKm } = require('../Controller/conversion')
+const { getCurrency, getOunces, getInches, getInchesController, getKgs, getKm } = require('../Controller/conversion')
 
-router.get('http://api.exchangeratesapi.io/v1/latest?access_key=a8482c395e320816755d6ef3d155c161&symbols=USD,AUD,CAD,PLN,MXN&format=1', getCurrency)
-router.post('/conversion/ounces', getOunces(4))
-router.post('/conversion/inches', getInches)
-router.post('/conversion/kgs', getKgs(50))
-router.post('/conversion/km', getKm(60))
+// router.get('/conversion/currency', getCurrency)
+// router.get('/conversion/ounces', getOunces(()=>{}))
+router.get('/conversion/inches', getInchesController)
+router.get('/conversion/kgs', getKgs)
+router.get('/conversion/km', getKm)
 
 
-
+//http://localhost:3000/conversion/inches?a=12
 
 module.exports = router
 

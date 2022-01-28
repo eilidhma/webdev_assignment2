@@ -1,20 +1,37 @@
-let rate = []
-
-const createTodo = (req,res)=>{
-  const newTodo = {...req.body, id: id++}
-  Todos.push(newTodo)
-  res.status(201).json(newTodo)
-}
 
 //currency
-const getCurrency = (req,res)=>{
-  res.json(rate)
+
+const getData = async(data)=>{
+  try{
+    const { data } = await axios.get('http://api.exchangeratesapi.io/v1/latest?access_key=a8482c395e320816755d6ef3d155c161&symbols=USD,AUD,CAD,PLN,MXN&format=1');
+    //console.log(data.rates.USD)
+    return data;
+  } catch(e) {
+    console.log(e);   
+  }
 }
 
+// const getCurrency = ()=>{
+//   const curr = await getData()
+//   res.json(curr)
+// }
+
 //feet to inches
-const getInches = (feet)=>{
-  return feet * 12
+const getInches = (a)=>{
+  b = 12
+  return Number(a) * Number(b)
 }
+
+const getInchesController = (req, res)=>{
+  getInches
+  res.send(String(getInches(req.query.a, req.query.b)));
+}
+
+
+const getTodoById = (req,res)=>{
+
+}
+
 
 //miles to km
 const getKm = (miles)=>{
@@ -32,8 +49,8 @@ const getKgs = (pounds) => {
 }
 
 module.exports = {
-  getCurrency,
   getInches,
+  getInchesController,
   getKm,
   getOunces,
   getKgs

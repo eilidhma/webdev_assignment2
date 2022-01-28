@@ -8,6 +8,35 @@ app.use(conversionRouter);
 
 app.listen(3000, ()=>console.log('server running'))
 
+// const http = require('http');
+// const url = require('url');
+
+// const convertKM = (a)=>{
+//   return Number(a) * 0.62
+// }
+// const convertOz = (a)=>{
+//   return Number(a) * 0.125
+// }
+// const convertFeet = (a)=>{
+//   return Number(a) * 12
+// }
+
+// const app = http.createServer((req,res)=>{
+//   const queries = url.parse(req.url, true).query;
+//   console.log(queries.name); 
+
+//   if(url.parse(req.url).pathname === '/kmtomiles'){
+//       res.end(String(queries.a) + 'km is ' + String(convertKM(queries.a)) + 'miles')
+//   }
+//   if(url.parse(req.url).pathname === '/oztocups'){
+//       res.end(String(queries.a) + 'oz is ' + String(convertOz(queries.a)) + 'cups')
+//   }
+//   if(url.parse(req.url).pathname === '/feettoinches'){
+//       res.end(String(queries.a) + 'feet is ' + String(convertFeet(queries.a)) + 'inches')
+//   }
+// });
+
+
 // const getData = async()=>{
 //   try{
 //     const { data } = router.get()
