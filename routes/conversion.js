@@ -1,15 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const { getCurrency, getOunces, getInches, getInchesController, getKgs, getKm } = require('../Controller/conversion')
+const { getOuncesController, getInchesController, getKmController, getKgsController, getFahrenheitController } = require('../Controller/conversion')
 
-// router.get('/conversion/currency', getCurrency)
-// router.get('/conversion/ounces', getOunces(()=>{}))
 router.get('/conversion/inches', getInchesController)
-router.get('/conversion/kgs', getKgs)
-router.get('/conversion/km', getKm)
+router.get('/conversion/km', getKmController)
+router.get('/conversion/kgs', getKgsController)
+router.get('/conversion/ounces', getOuncesController)
+router.get('/conversion/degrees', getFahrenheitController)
 
-
-//http://localhost:3000/conversion/inches?a=12
 
 module.exports = router
 
